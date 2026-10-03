@@ -1,0 +1,56 @@
+# Environment files (NEVER commit these)
+.env
+**/.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Node.js
+node_modules/
+.next/
+.nuxt/
+
+# Database
+*.db
+*.sqlite
+
+# Git history builder output
+incident-lab/test-data/commit_shas.json
+backend/incident-lab/
+
+# Evaluation results (generated, not committed)
+incident-lab/evaluation/results.json
+incident-lab/evaluation/report.md
+incident-lab/evaluation/results.csv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Docker
+.docker/
+
+# alembic (versions are committed, __pycache__ is not)
+backend/alembic/versions/__pycache__/

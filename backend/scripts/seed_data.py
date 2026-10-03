@@ -38,10 +38,10 @@ commit_shas = {}
 if SHA_FILE.exists():
     commit_shas = json.loads(SHA_FILE.read_text())
 
-DATABASE_URL = os.environ.get(
-    "DATABASE_URL",
-    "postgresql+asyncpg://roottrace:roottrace_secret@localhost:5432/roottrace"
-)
+from app.core.config import get_settings
+
+settings = get_settings()
+DATABASE_URL = settings.database_url
 
 # ── Timeline Reference ────────────────────────────────────────
 # All incidents happen relative to this base time

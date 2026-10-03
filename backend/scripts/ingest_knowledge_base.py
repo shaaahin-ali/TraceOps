@@ -33,12 +33,11 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from sqlalchemy import text
 
+from app.core.config import get_settings
 from app.retrieval.embeddings import get_embedding_provider
 
-DATABASE_URL = os.environ.get(
-    "DATABASE_URL",
-    "postgresql+asyncpg://roottrace:roottrace_secret@localhost:5432/roottrace"
-)
+settings = get_settings()
+DATABASE_URL = settings.database_url
 
 KB_ROOT = Path(__file__).parent.parent.parent / "incident-lab" / "knowledge-base"
 

@@ -31,10 +31,8 @@ import app.models.models  # noqa: F401
 config = context.config
 settings = get_settings()
 
-# Override the database URL with our Pydantic settings
-# Replace asyncpg with psycopg2 for Alembic (it needs sync connection)
-sync_url = settings.database_url.replace("+asyncpg", "+psycopg2")
-config.set_main_option("sqlalchemy.url", sync_url)
+# Override the database URL with our Pydantic settings (asyncpg for async migrations)
+config.set_main_option("sqlalchemy.url", settings.database_url)
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
